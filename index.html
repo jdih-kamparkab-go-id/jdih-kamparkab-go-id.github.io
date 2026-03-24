@@ -1,782 +1,547 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>FISIP UNTAN &#8211; Fakultas Ilmu Sosial dan Ilmu Politik Universitas Tanjungpura</title>
-<meta name="google-site-verification" content="SrTZawFSaLAONuV52vjH13dAEw3zOeO0J7W9G7wwpi8" />
+    <meta charset="UTF-8">
+    <title>JDIH Kabupaten Kampar</title>
+	<meta name="google-site-verification" content="SrTZawFSaLAONuV52vjH13dAEw3zOeO0J7W9G7wwpi8" />
 <link rel="icon" href="https://jdih.kamparkab.go.id/public/template/images/logokampar.png" sizes="32x32" />
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#333; background:#f0f0f0; }
-a { text-decoration:none; color:inherit; }
-img { max-width:100%; height:auto; display:block; }
-ul { list-style:none; }
-:root {
-  --blue:  #1a3a6b;
-  --blue2: #122a52;
-  --gold:  #e8a000;
-  --border:#ddd;
-  --wrap:  1200px;
-}
-/* TOP BAR */
-#topbar { background:var(--blue); font-size:11px; color:#bcd; border-bottom:1px solid #0e2446; }
-#topbar .wrap { max-width:var(--wrap); margin:auto; padding:4px 15px; display:flex; justify-content:space-between; align-items:center; }
-#topbar a { color:#bcd; transition:color .2s; }
-#topbar a:hover { color:#fff; }
-#topbar .left { display:flex; gap:6px; align-items:center; }
-#topbar .left span { opacity:.5; }
-#topbar .right { display:flex; gap:2px; align-items:center; }
-#topbar .right a { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:3px; font-size:11px; transition:background .2s,color .2s; }
-#topbar .right a:hover { background:var(--gold); color:#fff; }
-#topbar .right .sep { width:1px; height:14px; background:rgba(255,255,255,.15); margin:0 4px; }
-/* HEADER */
-#header { background:#153a65; border-bottom:4px solid var(--blue); padding:10px 0; }
-#header .wrap { max-width:var(--wrap); margin:auto; padding:0 15px; display:flex; align-items:center; gap:14px; }
-#header .logo { display:flex; align-items:center; gap:12px; }
-#header .logo img { height:75px; width:75px; object-fit:contain; flex-shrink:0; }
-#header .logo-text h1 { font-size:17px; font-weight:700; color:var(--blue); line-height:1.25; letter-spacing:-.3px; }
-#header .logo-text .sub { font-size:11.5px; color:#555; line-height:1.45; margin-top:2px; }
-#header .header-right { margin-left:auto; display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
-.search-form { display:flex; height:30px; border:1.5px solid #ccc; border-radius:3px; overflow:hidden; }
-.search-form input { border:none; outline:none; padding:0 10px; font-size:12px; width:200px; color:#333; }
-.search-form button { background:var(--blue); color:#fff; border:none; padding:0 12px; cursor:pointer; font-size:12px; transition:background .2s; }
-.search-form button:hover { background:var(--gold); }
-.visitor-bar { font-size:11px; color:#666; display:flex; gap:16px; }
-.visitor-bar span strong { color:var(--blue); font-weight:700; }
-/* NAV */
-#navbar { background:linear-gradient(to bottom,var(--blue) 0%,#152e5c 100%); position:sticky; top:0; z-index:999; box-shadow:0 2px 6px rgba(0,0,0,.3); }
-#navbar .wrap { max-width:var(--wrap); margin:auto; padding:0 15px; display:flex; align-items:stretch; }
-#navbar>.wrap>ul { display:flex; }
-#navbar>.wrap>ul>li { position:relative; }
-#navbar>.wrap>ul>li>a { display:flex; align-items:center; gap:5px; color:#fff; font-size:12.5px; font-weight:600; padding:12px 13px; border-right:1px solid rgba(255,255,255,.07); transition:background .2s; white-space:nowrap; }
-#navbar>.wrap>ul>li:first-child>a { border-left:1px solid rgba(255,255,255,.07); }
-#navbar>.wrap>ul>li>a:hover,#navbar>.wrap>ul>li.active>a { background:var(--gold); color:#fff; }
-#navbar>.wrap>ul>li>a .caret { font-size:9px; opacity:.7; }
-.dropdown { display:none; position:absolute; top:100%; left:0; background:#fff; min-width:210px; box-shadow:0 6px 20px rgba(0,0,0,.18); border-top:3px solid var(--gold); z-index:1000; }
-.dropdown li { border-bottom:1px solid #f0f0f0; }
-.dropdown li:last-child { border-bottom:none; }
-.dropdown li a { display:block; padding:9px 16px; font-size:12px; color:#333; font-weight:400; transition:background .15s,color .15s,padding .15s; }
-.dropdown li a:hover { background:#f5f7fc; color:var(--blue); padding-left:22px; }
-#navbar>.wrap>ul>li:hover .dropdown { display:block; }
-/* MARQUEE */
-#marquee-bar { background:var(--gold); padding:6px 0; overflow:hidden; }
-#marquee-bar .wrap { max-width:var(--wrap); margin:auto; padding:0 15px; display:flex; align-items:center; gap:10px; }
-#marquee-bar .tag { background:var(--blue); color:#fff; font-size:10.5px; font-weight:700; padding:2px 10px; white-space:nowrap; flex-shrink:0; border-radius:2px; letter-spacing:.5px; }
-#marquee-bar .marquee-track { overflow:hidden; flex:1; }
-#marquee-bar .marquee-inner { display:inline-block; white-space:nowrap; animation:marquee 38s linear infinite; font-size:12px; color:#fff; font-weight:600; }
-@keyframes marquee { 0%{transform:translateX(100vw)} 100%{transform:translateX(-100%)} }
-/* SLIDER */
-#slider { position:relative; overflow:hidden; background:var(--blue2); max-height:430px; }
-.slide { display:none; position:relative; }
-.slide.active { display:block; }
-.slide img { width:100%; height:430px; object-fit:cover; object-position:center top; display:block; }
-.slide-placeholder { width:100%; height:430px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.3); font-size:48px; }
-.slide-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(8,22,52,.9)); padding:40px 40px 26px; color:#fff; }
-.slide-caption h2 { font-size:20px; font-weight:700; line-height:1.35; margin-bottom:6px; text-shadow:0 1px 4px rgba(0,0,0,.5); max-width:780px; }
-.slide-caption p { font-size:12.5px; opacity:.88; max-width:720px; line-height:1.6; }
-.slide-caption .btn-read { display:inline-block; margin-top:12px; background:var(--gold); color:#fff; font-size:11.5px; font-weight:700; padding:6px 18px; border-radius:2px; transition:background .2s; }
-.slide-caption .btn-read:hover { background:#c88800; }
-.s-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.18); color:#fff; border:none; font-size:18px; padding:14px 16px; cursor:pointer; transition:background .2s; z-index:10; }
-.s-arrow:hover { background:rgba(255,255,255,.38); }
-.s-prev { left:0; } .s-next { right:0; }
-.s-dots { position:absolute; bottom:14px; right:18px; display:flex; gap:6px; }
-.s-dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.35); border:none; cursor:pointer; transition:background .2s; }
-.s-dot.active { background:var(--gold); }
-/* LAYOUT */
-.page-wrap { max-width:var(--wrap); margin:22px auto; padding:0 15px; display:grid; grid-template-columns:minmax(0,1fr) 295px; gap:22px; }
-/* SEC HEAD */
-.sec-head { display:flex; align-items:center; justify-content:space-between; background:var(--blue); color:#fff; padding:8px 14px; margin-bottom:1px; }
-.sec-head h2 { font-size:14px; font-weight:700; display:flex; align-items:center; gap:8px; }
-.sec-head h2::before { content:''; display:inline-block; width:4px; height:16px; background:var(--gold); border-radius:2px; }
-.sec-head a { color:var(--gold); font-size:11px; font-weight:600; }
-.sec-head a:hover { color:#fff; }
-/* NEWS GRID */
-.news-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:20px; }
-.news-card { background:#fff; transition:box-shadow .2s; }
-.news-card:hover { box-shadow:inset 0 0 0 2px var(--blue); }
-.news-card .nc-thumb { width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--blue); }
-.news-card .nc-body { padding:12px 14px 14px; }
-.news-card .nc-cat { display:inline-block; background:var(--gold); color:#fff; font-size:9.5px; font-weight:700; letter-spacing:.5px; padding:2px 8px; border-radius:2px; margin-bottom:7px; text-transform:uppercase; }
-.news-card h3 { font-size:13px; font-weight:700; line-height:1.45; color:var(--blue); margin-bottom:6px; }
-.news-card h3 a:hover { color:var(--gold); }
-.news-card p { font-size:11.5px; color:#666; line-height:1.65; }
-.news-card .nc-meta { display:flex; gap:12px; margin-top:8px; font-size:10.5px; color:#999; flex-wrap:wrap; }
-.news-card .nc-meta i { color:var(--gold); margin-right:3px; }
-.news-card.featured { grid-column:1/-1; display:grid; grid-template-columns:55% 45%; }
-.news-card.featured .nc-thumb { height:100%; aspect-ratio:unset; min-height:210px; }
-.news-card.featured .nc-body { padding:20px 18px; }
-.news-card.featured h3 { font-size:15px; }
-/* NEWS LIST */
-.news-list { background:#fff; border:1px solid var(--border); margin-bottom:20px; }
-.nl-item { display:flex; gap:12px; align-items:flex-start; padding:11px 14px; border-bottom:1px solid #eee; transition:background .15s; }
-.nl-item:last-child { border-bottom:none; }
-.nl-item:hover { background:#f9f9f9; }
-.nl-item img { width:82px; height:62px; object-fit:cover; flex-shrink:0; background:var(--blue); }
-.nl-item .nl-info h4 { font-size:12.5px; font-weight:700; color:var(--blue); line-height:1.45; }
-.nl-item .nl-info h4 a:hover { color:var(--gold); }
-.nl-item .nl-meta { font-size:10.5px; color:#999; margin-top:4px; }
-.nl-item .nl-meta i { color:var(--gold); margin-right:3px; }
-/* SIDEBAR */
-.sb-box { background:#fff; border:1px solid var(--border); margin-bottom:18px; overflow:hidden; }
-.sb-list li { display:flex; gap:9px; align-items:flex-start; padding:9px 14px; border-bottom:1px solid #eee; font-size:12px; }
-.sb-list li:last-child { border-bottom:none; }
-.sb-list li i { color:var(--gold); margin-top:2px; flex-shrink:0; }
-.sb-list li a { color:#333; line-height:1.5; }
-.sb-list li a:hover { color:var(--blue); }
-.sb-list .s-date { display:block; font-size:10px; color:#aaa; margin-top:2px; }
-.mini-cal { padding:12px 14px; }
-.mc-header { display:flex; justify-content:space-between; align-items:center; font-weight:700; color:var(--blue); font-size:12.5px; margin-bottom:10px; }
-.mc-header button { background:none; border:none; cursor:pointer; color:var(--blue); font-size:15px; line-height:1; padding:2px 5px; transition:color .2s; }
-.mc-header button:hover { color:var(--gold); }
-.mini-cal table { width:100%; border-collapse:collapse; text-align:center; }
-.mini-cal table th { font-size:10.5px; color:#999; padding:4px 2px; }
-.mini-cal table td { font-size:11px; padding:4px 2px; cursor:pointer; border-radius:2px; }
-.mini-cal table td:hover { background:#f0f4ff; color:var(--blue); }
-.mini-cal table td.today { background:var(--blue); color:#fff; border-radius:50%; font-weight:700; }
-.mini-cal table td.has-event { color:var(--gold); font-weight:700; }
-.mini-cal table td.other { color:#ccc; }
-.link-btn-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); }
-.link-btn { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:14px 8px; background:#fff; font-size:11px; color:var(--blue); font-weight:600; text-align:center; transition:background .2s,color .2s; cursor:pointer; }
-.link-btn i { font-size:20px; color:var(--gold); transition:color .2s; }
-.link-btn:hover { background:var(--blue); color:#fff; }
-.link-btn:hover i { color:#fff; }
-/* PRODI */
-#prodi-section { max-width:var(--wrap); margin:0 auto 24px; padding:0 15px; }
-.prodi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
-.prodi-card { background:#fff; text-align:center; padding:22px 12px 18px; cursor:pointer; transition:background .22s,color .22s; }
-.prodi-card:hover { background:var(--blue); }
-.prodi-card .p-icon { font-size:34px; color:var(--gold); margin-bottom:10px; transition:color .22s; }
-.prodi-card:hover .p-icon { color:#fff; }
-.prodi-card h3 { font-size:12.5px; font-weight:700; color:var(--blue); line-height:1.4; transition:color .22s; }
-.prodi-card:hover h3 { color:#fff; }
-.prodi-card p { font-size:10.5px; color:#888; margin-top:3px; transition:color .22s; }
-.prodi-card:hover p { color:rgba(255,255,255,.75); }
-/* COUNTER */
-#counter-band { background:linear-gradient(135deg,var(--blue) 0%,#0e2446 100%); padding:22px 0; margin-bottom:24px; }
-#counter-band .wrap { max-width:var(--wrap); margin:auto; padding:0 15px; display:flex; flex-wrap:wrap; justify-content:space-around; gap:14px; }
-.counter-item { text-align:center; }
-.counter-item .num { font-size:30px; font-weight:800; color:var(--gold); line-height:1; }
-.counter-item .lbl { font-size:11px; color:rgba(255,255,255,.75); margin-top:4px; font-weight:600; letter-spacing:.5px; }
-/* GALLERY */
-#gallery-section { max-width:var(--wrap); margin:0 auto 26px; padding:0 15px; }
-.gallery-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; margin-top:1px; }
-.g-item { position:relative; overflow:hidden; aspect-ratio:1/1; cursor:pointer; background:#ccc; }
-.g-item img { width:100%; height:100%; object-fit:cover; transition:transform .35s; }
-.g-item:hover img { transform:scale(1.08); }
-.g-item .g-ov { position:absolute; inset:0; background:rgba(26,58,107,.6); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s; }
-.g-item:hover .g-ov { opacity:1; }
-.g-item .g-ov i { color:#fff; font-size:24px; }
-/* PARTNERS */
-#partners { background:#fff; border-top:1px solid #eee; border-bottom:1px solid #eee; padding:18px 0; margin-bottom:26px; }
-#partners .wrap { max-width:var(--wrap); margin:auto; padding:0 15px; }
-#partners h4 { font-size:13px; font-weight:700; color:var(--blue); padding-bottom:8px; margin-bottom:14px; border-bottom:2px solid var(--gold); display:inline-block; }
-.partner-logos { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:center; }
-.p-logo { width:90px; height:55px; border:1px solid #e8e8e8; border-radius:3px; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#fafafa; }
-.p-logo img { max-width:80px; max-height:45px; object-fit:contain; }
-.p-logo span { font-size:10px; color:#999; text-align:center; padding:4px; }
-/* FOOTER */
-#footer { background:var(--blue); color:#b8cce0; padding:32px 0 0; }
-#footer .wrap { max-width:var(--wrap); margin:auto; padding:0 15px; display:grid; grid-template-columns:2.2fr 1.2fr 1.2fr 1.4fr; gap:28px; }
-.fc h4 { color:#fff; font-size:13px; font-weight:700; padding-bottom:8px; margin-bottom:14px; border-bottom:2px solid var(--gold); }
-.fc p { font-size:11.5px; line-height:1.75; }
-.fc .ci { display:flex; gap:8px; align-items:flex-start; font-size:11.5px; margin-top:8px; line-height:1.6; }
-.fc .ci i { color:var(--gold); margin-top:2px; flex-shrink:0; }
-.fc ul li { padding:4px 0; font-size:11.5px; border-bottom:1px solid rgba(255,255,255,.06); }
-.fc ul li::before { content:'›'; color:var(--gold); margin-right:7px; }
-.fc ul li a { color:#b8cce0; transition:color .2s; }
-.fc ul li a:hover { color:var(--gold); }
-.footer-social { display:flex; gap:7px; margin-top:14px; }
-.footer-social a { width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; transition:background .2s; }
-.footer-social a:hover { background:var(--gold); }
-.footer-logo { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
-.footer-logo img { width:52px; height:52px; object-fit:contain; }
-.footer-logo h3 { font-size:14px; font-weight:700; color:#fff; line-height:1.3; }
-.footer-bottom { margin-top:24px; background:var(--blue2); padding:11px 15px; text-align:center; font-size:11px; color:#7a9ab5; }
-.footer-bottom span { color:var(--gold); }
-/* RESPONSIVE */
-@media(max-width:960px){
-  .page-wrap { grid-template-columns:1fr; }
-  .prodi-grid { grid-template-columns:repeat(2,1fr); }
-  .gallery-grid { grid-template-columns:repeat(3,1fr); }
-  #footer .wrap { grid-template-columns:1fr 1fr; }
-  .news-card.featured { grid-template-columns:1fr; }
-}
-@media(max-width:600px){
-  #navbar>.wrap>ul { overflow-x:auto; flex-wrap:nowrap; }
-  .news-grid { grid-template-columns:1fr; }
-  .news-card.featured { grid-column:auto; }
-  #footer .wrap { grid-template-columns:1fr; }
-  .gallery-grid { grid-template-columns:repeat(2,1fr); }
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Helvetica", Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        background: #f0f3f5;
+        color: #333;
+    }
+
+    .container {
+        width: 95%;
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+
+    /* HEADER ATAS */
+    .topbar {
+        background: #30bdc5;
+        border-bottom: 4px solid #30bdc5;
+        padding: 8px 0;
+    }
+
+    .topbar-inner {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-wrap img {
+        height: 72px;
+        display: block;
+    }
+
+    .site-title-wrap {
+        margin-left: 15px;
+    }
+
+    .site-title-wrap h1 {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #222;
+        letter-spacing: 0.5px;
+    }
+
+    .site-title-wrap h2 {
+        font-size: 13px;
+        text-transform: uppercase;
+        color: #777;
+        margin-top: 4px;
+    }
+
+    /* NAVBAR */
+    .main-nav {
+        background: #30bdc5;
+        border-bottom: 1px solid #003e65;
+    }
+
+    .nav-inner {
+        display: flex;
+    }
+
+    .nav-menu {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 11px 18px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .nav-menu li:last-child a {
+        border-right: none;
+    }
+
+    .nav-menu li a:hover,
+    .nav-menu li a.active {
+        background: #00466f;
+    }
+
+    /* HERO / BANNER ATAS */
+    .hero {
+        background: #e3edf3;
+        padding: 25px 0 20px;
+        border-bottom: 1px solid #d2dde5;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .hero-text {
+        flex: 2;
+    }
+
+    .hero-text h3 {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 3px;
+    }
+
+    .hero-text h2 {
+        font-size: 24px;
+        color: #30bdc5;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .hero-text p {
+        font-size: 13px;
+        color: #444;
+    }
+
+    .hero-box {
+        flex: 1.2;
+        background: #ffffff;
+        border-top: 3px solid #30bdc5;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.10);
+        padding: 15px 15px 10px;
+        font-size: 13px;
+    }
+
+    .hero-box h4 {
+        font-size: 14px;
+        margin: 5px 0;
+        color: #30bdc5;
+        text-transform: uppercase;
+    }
+
+    .hero-box ol {
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    /* JUDUL SECTION */
+    .section-title {
+        font-size: 17px;
+        margin-bottom: 15px;
+        padding-left: 10px;
+        border-left: 4px solid #30bdc5;
+        text-transform: uppercase;
+        color: #333;
+    }
+
+    /* PRODUK HUKUM */
+    .produk-hukum {
+        background: #ffffff;
+        padding: 25px 0 20px;
+        border-bottom: 1px solid #d9e1e7;
+    }
+
+    .produk-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 15px;
+    }
+
+    .produk-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        background: #f5f7f9;
+        border: 1px solid #dde3ea;
+        text-decoration: none;
+        color: #333;
+        transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .produk-item:hover {
+        background: #e8f2fa;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .produk-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 4px;
+        background: #30bdc5;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .produk-text h4 {
+        font-size: 13px;
+        margin-bottom: 3px;
+        text-transform: uppercase;
+    }
+
+    .produk-text p {
+        font-size: 12px;
+        color: #777;
+    }
+
+    /* PROFIL KEPALA BAGIAN */
+    .profil-kepala {
+        background: #e3edf3;
+        padding: 25px 0 25px;
+        border-bottom: 1px solid #d2dde5;
+    }
+
+    .profil-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .profil-text {
+        flex: 2;
+    }
+
+    .profil-text h3 {
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+
+    .profil-text h4 {
+        font-size: 16px;
+        color: #30bdc5;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    .profil-text p {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .profil-foto {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .foto-placeholder {
+        width: 140px;
+        height: 180px;
+        border: 3px solid #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.20);
+        background: #cfd9e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        color: #555;
+    }
+
+    /* BERITA & PENGUMUMAN */
+    .berita-kegiatan {
+        background: #ffffff;
+        padding: 25px 0 35px;
+    }
+
+    .berita-kegiatan .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .berita-col {
+        flex: 2;
+    }
+
+    .kegiatan-col {
+        flex: 1;
+    }
+
+    .berita-item {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #c7d0da;
+    }
+
+    .berita-item h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: #30bdc5;
+    }
+
+    .berita-item .meta {
+        font-size: 11px;
+        color: #999;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .berita-item p {
+        font-size: 13px;
+        color: #444;
+    }
+
+    .list-simple {
+        list-style: none;
+        font-size: 13px;
+    }
+
+    .list-simple li {
+        margin-bottom: 8px;
+    }
+
+    .list-simple a {
+        color: #30bdc5;
+        text-decoration: none;
+    }
+
+    .list-simple a:hover {
+        text-decoration: underline;
+    }
+
+    /* FOOTER */
+    .site-footer {
+        background: #30bdc5;
+        color: #fff;
+        padding: 15px 0;
+        font-size: 12px;
+    }
+
+    .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .topbar-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-inner,
+        .profil-inner,
+        .berita-kegiatan .container {
+            flex-direction: column;
+        }
+
+        .profil-foto {
+            justify-content: flex-start;
+        }
+
+        .nav-menu {
+            flex-wrap: wrap;
+        }
+
+        .nav-menu li a {
+            padding: 10px 12px;
+        }
+    }
+    </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div id="topbar">
-  <div class="wrap">
-    <div class="left">
-      <a href="https://fisip.untan.ac.id/">Beranda</a><span>|</span>
-      <a href="https://fisip.untan.ac.id/contact">Kontak</a><span>|</span>
-      <a href="https://fisip.untan.ac.id/sitemap">Sitemap</a><span>|</span>
-      <a href="https://mail.untan.ac.id" target="_blank">Email FISIP</a><span>|</span>
-      <a href="https://siakad.untan.ac.id" target="_blank">SIAKAD</a>
+<header class="topbar">
+    <div class="container topbar-inner">
+        <div class="logo-wrap">
+            <a href="#">
+                <img src="https://jdih.kamparkab.go.id/public/template/images/logo.png" alt="Logo JDIH Kampar">
+            </a>
+        </div>
+        <div class="site-title-wrap">
+            <h1>JARINGAN DOKUMENTASI DAN INFORMASI HUKUM</h1>
+            <h2>PEMERINTAH KABUPATEN KAMPAR</h2>
+        </div>
     </div>
-    <div class="right">
-      <a href="https://www.facebook.com/fisipuntan65" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com/fisipuntan" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/fisipuntan65" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@fisipuntan" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-      <div class="sep"></div>
-      <a href="#" title="RSS"><i class="fas fa-rss"></i></a>
-    </div>
-  </div>
-</div>
-
-<!-- HEADER -->
-<header id="header">
-  <div class="wrap">
-    <div class="logo">
-      <img class="logo-wrap" src="https://jdih.kamparkab.go.id/public/template/images/logo.png" style="height:70px;width:150px;object-fit:contain;" alt="Logo Disperindag Jawa Barat"/>
-    </div>
-    <div class="header-right">
-      <form class="search-form" action="https://fisip.untan.ac.id/" method="get">
-        <input type="text" name="s" placeholder="Cari berita, artikel..." autocomplete="off"/>
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </form>
-      <div class="visitor-bar">
-        <span>Hari Ini: <strong>284</strong></span>
-        <span>Kemarin: <strong>371</strong></span>
-        <span>Total: <strong>1.204.871</strong></span>
-      </div>
-    </div>
-  </div>
 </header>
 
-<!-- NAVIGASI UTAMA -->
-<nav id="navbar">
-  <div class="wrap">
-    <ul>
-      <li class="active"><a href="https://fisip.untan.ac.id/">Beranda</a></li>
-      <li>
-        <a href="#">Profil <i class="fas fa-caret-down caret"></i></a>
-        <ul class="dropdown">
-          <li><a href="https://fisip.untan.ac.id/tentang-fisip/">Tentang FISIP</a></li>
-          <li><a href="https://fisip.untan.ac.id/visi-misi/">Visi &amp; Misi</a></li>
-          <li><a href="https://fisip.untan.ac.id/sejarah/">Sejarah FISIP UNTAN</a></li>
-          <li><a href="https://fisip.untan.ac.id/profil-3/struktur-organisasi/">Struktur Organisasi</a></li>
-          <li><a href="#">Pimpinan Fakultas</a></li>
-          <li><a href="#">Dosen &amp; Staf</a></li>
-          <li><a href="#">Fasilitas</a></li>
+<nav class="main-nav">
+    <div class="container nav-inner">
+        <ul class="nav-menu">
+            <li><a href="#" class="active">Beranda</a></li>
+            <li><a href="#">Profil</a></li>
+            <li><a href="#">Produk Hukum</a></li>
+            <li><a href="#">Artikel</a></li>
+            <li><a href="#">Monografi</a></li>
+            <li><a href="#">Galeri</a></li>
+            <li><a href="#">Informasi</a></li>
+            <li><a href="#">Kontak</a></li>
         </ul>
-      </li>
-      <li>
-        <a href="#">Akademik <i class="fas fa-caret-down caret"></i></a>
-        <ul class="dropdown">
-          <li><a href="#">Kalender Akademik</a></li>
-          <li><a href="#">Jadwal Kuliah</a></li>
-          <li><a href="#">Kurikulum</a></li>
-          <li><a href="#">Peraturan Akademik</a></li>
-          <li><a href="#">Panduan Akademik</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Program Studi <i class="fas fa-caret-down caret"></i></a>
-        <ul class="dropdown">
-          <li><a href="https://fisip.untan.ac.id/akademik-2/program-studi/">Semua Program Studi</a></li>
-          <li><a href="#">Ilmu Politik (S1)</a></li>
-          <li><a href="#">Hubungan Internasional (S1)</a></li>
-          <li><a href="#">Ilmu Komunikasi (S1)</a></li>
-          <li><a href="#">Ilmu Pemerintahan (S1)</a></li>
-          <li><a href="#">Sosiologi (S1)</a></li>
-          <li><a href="#">Antropologi Sosial (S1)</a></li>
-          <li><a href="#">Administrasi Publik (S1)</a></li>
-          <li><a href="https://perkantoran.fisip.untan.ac.id/">Adm. Perkantoran (D3)</a></li>
-          <li><a href="https://pascasarjanafisip.untan.ac.id/">Pascasarjana (S2)</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Kemahasiswaan <i class="fas fa-caret-down caret"></i></a>
-        <ul class="dropdown">
-          <li><a href="#">Organisasi Mahasiswa</a></li>
-          <li><a href="#">MBKM</a></li>
-          <li><a href="https://fisip.untan.ac.id/tag/kkm/">KKM</a></li>
-          <li><a href="#">Beasiswa</a></li>
-          <li><a href="#">Prestasi Mahasiswa</a></li>
-          <li><a href="#">Alumni</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Penelitian <i class="fas fa-caret-down caret"></i></a>
-        <ul class="dropdown">
-          <li><a href="#">Jurnal Ilmiah</a></li>
-          <li><a href="#">Penelitian Dosen</a></li>
-          <li><a href="#">Pengabdian Masyarakat</a></li>
-          <li><a href="#">Repository</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://fisip.untan.ac.id/category/berita/">Berita <i class="fas fa-caret-down caret"></i></a>
-        <ul class="dropdown">
-          <li><a href="https://fisip.untan.ac.id/category/berita/">Semua Berita</a></li>
-          <li><a href="#">Pengumuman</a></li>
-          <li><a href="#">Agenda</a></li>
-          <li><a href="#">Galeri</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Layanan <i class="fas fa-caret-down caret"></i></a>
-        <ul class="dropdown">
-          <li><a href="https://siakad.untan.ac.id" target="_blank">SIAKAD UNTAN</a></li>
-          <li><a href="#" target="_blank">E-Learning</a></li>
-          <li><a href="#" target="_blank">Perpustakaan Digital</a></li>
-          <li><a href="#">Layanan Surat Online</a></li>
-          <li><a href="#">Tracer Study Alumni</a></li>
-        </ul>
-      </li>
-      <li><a href="https://fisip.untan.ac.id/contact">Kontak</a></li>
-    </ul>
-  </div>
+    </div>
 </nav>
 
-<!-- MARQUEE -->
-<div id="marquee-bar">
-  <div class="wrap">
-    <span class="tag">&#128226; INFO</span>
-    <div class="marquee-track">
-      <span class="marquee-inner">
-        &#128218; Pendaftaran Mahasiswa Baru S2 FISIP UNTAN 2025 kini dibuka – Magister Sosiologi, Adm. Publik &amp; Ilmu Politik &nbsp;&nbsp;&#9474;&nbsp;&nbsp;
-        &#127891; 193 Mahasiswa FISIP Untan Berkolaborasi Bangun Desa dalam Program KKM TA 2024/2025 di Kab. Sanggau &nbsp;&nbsp;&#9474;&nbsp;&nbsp;
-        &#128203; Workshop SAR ACQUIN Prodi Administrasi Publik berhasil dilaksanakan &nbsp;&nbsp;&#9474;&nbsp;&nbsp;
-        &#127942; FISIP UNTAN meraih akreditasi Unggul BAN-PT &nbsp;&nbsp;&#9474;&nbsp;&nbsp;
-        &#127758; Kerjasama Internasional FISIP UNTAN &amp; Friedensau Adventist University (FAU) Jerman telah ditandatangani
-      </span>
-    </div>
-  </div>
-</div>
-
-<!-- HERO SLIDER -->
-<div id="slider">
-  <div class="slide active">
-    <img src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/KKM-FISIP-UNTAN-2024-2025-scaled.jpg"
-         alt="KKM 2024/2025"
-         onerror="this.style.cssText='width:100%;height:430px;background:linear-gradient(135deg,#0d2447,#1a3a6b);display:block';this.removeAttribute('src')"/>
-    <div class="slide-caption">
-      <h2>193 Mahasiswa FISIP Untan Berkolaborasi Bangun Desa</h2>
-      <p>FISIP Universitas Tanjungpura secara resmi melepas 193 mahasiswa untuk menjalankan Kuliah Kerja Mahasiswa (KKM) TA 2024/2025 di 14 desa, Kecamatan Tayan Hilir, Kabupaten Sanggau.</p>
-      <a href="https://fisip.untan.ac.id/tag/kkm/" class="btn-read">Baca Selengkapnya</a>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/Workshop-SAR-ACQUIN-Administrasi-Publik-FISIP-UNTAN-scaled.jpg"
-         alt="Workshop SAR ACQUIN"
-         onerror="this.style.cssText='width:100%;height:430px;background:linear-gradient(135deg,#0d3a1f,#1a6b3a);display:block';this.removeAttribute('src')"/>
-    <div class="slide-caption">
-      <h2>Workshop Penyusunan SAR ACQUIN Prodi Administrasi Publik</h2>
-      <p>FISIP Universitas Tanjungpura menyelenggarakan Workshop SAR ACQUIN untuk mendukung akreditasi internasional Program Studi Administrasi Publik.</p>
-      <a href="https://fisip.untan.ac.id/" class="btn-read">Baca Selengkapnya</a>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/11/Alumni-FISIP-UNTAN-2024-scaled.jpg"
-         alt="Alumni FISIP 2024"
-         onerror="this.style.cssText='width:100%;height:430px;background:linear-gradient(135deg,#3a1a0d,#6b3a1a);display:block';this.removeAttribute('src')"/>
-    <div class="slide-caption">
-      <h2>Alumni FISIP Periode 2024 – Lulusan FISIP Untan Cemerlang</h2>
-      <p>Lulusan FISIP Universitas Tanjungpura 2024 telah berhasil memasuki dunia kerja, berwirausaha, dan melanjutkan studi ke jenjang lebih tinggi.</p>
-      <a href="https://fisip.untan.ac.id/" class="btn-read">Baca Selengkapnya</a>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/MBKM-FISIP-UNTAN-2024-scaled.jpg"
-         alt="MBKM 2024"
-         onerror="this.style.cssText='width:100%;height:430px;background:linear-gradient(135deg,#1a0d3a,#3a1a6b);display:block';this.removeAttribute('src')"/>
-    <div class="slide-caption">
-      <h2>MBKM FISIP UNTAN 2024 – 301 Mahasiswa Magang di 60 Instansi Mitra</h2>
-      <p>Program Merdeka Belajar Kampus Merdeka (MBKM) FISIP UNTAN 2024 Skema Mandiri diikuti 301 mahasiswa yang tersebar di 60 instansi mitra di wilayah Pontianak dan Kabupaten Kubu Raya.</p>
-      <a href="https://fisip.untan.ac.id/2024/10/01/peluncuran-mbkm-periode-2024/" class="btn-read">Baca Selengkapnya</a>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/Dies-Natalis-FISIP-UNTAN-59-scaled.jpg"
-         alt="Dies Natalis ke-59"
-         onerror="this.style.cssText='width:100%;height:430px;background:linear-gradient(135deg,#3a3a0d,#6b6b1a);display:block';this.removeAttribute('src')"/>
-    <div class="slide-caption">
-      <h2>Dies Natalis FISIP UNTAN ke-59 Dirayakan di Kota Pontianak</h2>
-      <p>FISIP Universitas Tanjungpura menyelenggarakan Dies Natalis ke-59 pada Selasa (29/10/2024) sebagai bentuk syukur atas capaian dan perjalanan panjang fakultas.</p>
-      <a href="https://fisip.untan.ac.id/" class="btn-read">Baca Selengkapnya</a>
-    </div>
-  </div>
-  <button class="s-arrow s-prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-  <button class="s-arrow s-next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
-  <div class="s-dots">
-    <button class="s-dot active" onclick="goSlide(0)"></button>
-    <button class="s-dot" onclick="goSlide(1)"></button>
-    <button class="s-dot" onclick="goSlide(2)"></button>
-    <button class="s-dot" onclick="goSlide(3)"></button>
-    <button class="s-dot" onclick="goSlide(4)"></button>
-  </div>
-</div>
-
-<!-- MAIN CONTENT + SIDEBAR -->
-<div class="page-wrap">
-  <main>
-    <!-- BERITA TERBARU -->
-    <div class="sec-head">
-      <h2>Berita Terbaru</h2>
-      <a href="https://fisip.untan.ac.id/category/berita/">Lihat Semua &raquo;</a>
-    </div>
-    <div class="news-grid">
-      <!-- FEATURED -->
-      <div class="news-card featured">
-        <img class="nc-thumb"
-             src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/KKM-FISIP-UNTAN-2024-2025-scaled.jpg"
-             alt="KKM 2024/2025"/>
-        <div class="nc-body">
-          <span class="nc-cat">KKM</span>
-          <h3><a href="https://fisip.untan.ac.id/tag/kkm/">193 Mahasiswa FISIP Untan Berkolaborasi Bangun Desa dalam Program KKM Tahun Anggaran 2024/2025</a></h3>
-          <p>Fakultas Ilmu Sosial dan Ilmu Politik (FISIP) Universitas Tanjungpura (Untan) secara resmi melepas 193 mahasiswa yang akan menjalankan Kuliah Kerja Mahasiswa (KKM) Tahun Anggaran 2024/2025. Pelepasan berlangsung di Ruang Daranante, Kantor Bupati Sanggau, dan para mahasiswa ditempatkan di 14 desa di Kecamatan Tayan Hilir.</p>
-          <div class="nc-meta">
-            <span><i class="far fa-calendar-alt"></i>15 Januari 2025</span>
-            <span><i class="far fa-user"></i>Admin FISIP</span>
-            <span><i class="fas fa-tag"></i>KKM</span>
-          </div>
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-text">
+            <h3>Selamat Datang di Website</h3>
+            <h2>JDIH KABUPATEN KAMPAR</h2>
+            <p>
+                Website ini merupakan media layanan informasi dokumentasi produk hukum daerah Kabupaten Kampar,
+                dikelola oleh Bagian Hukum Sekretariat Daerah Kabupaten Kampar.
+            </p>
+            <p>
+                Melalui situs ini diharapkan masyarakat dapat dengan mudah mengakses peraturan daerah,
+                peraturan bupati, keputusan, serta informasi lain yang berkaitan dengan penyelenggaraan pemerintahan daerah.
+            </p>
         </div>
-      </div>
-      <!-- CARD 2 -->
-      <div class="news-card">
-        <img class="nc-thumb" src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/Workshop-SAR-ACQUIN-Administrasi-Publik-FISIP-UNTAN-scaled.jpg" alt="Workshop SAR ACQUIN"/>
-        <div class="nc-body">
-          <span class="nc-cat">Akreditasi</span>
-          <h3><a href="https://fisip.untan.ac.id/">Workshop Penyusunan Self Assessment Report (SAR) ACQUIN Prodi Administrasi Publik</a></h3>
-          <p>FISIP UNTAN menyelenggarakan Workshop SAR ACQUIN bersama tim asesor internasional untuk mendukung proses akreditasi internasional Program Studi Administrasi Publik.</p>
-          <div class="nc-meta"><span><i class="far fa-calendar-alt"></i>10 Januari 2025</span></div>
+        <div class="hero-box">
+            <h4>Visi</h4>
+            <p>
+                Menjadikan Bagian Hukum sebagai pusat informasi dan pelayanan produk hukum daerah
+                serta bantuan hukum yang mengedepankan kepastian hukum dan kemudahan akses bagi masyarakat.
+            </p>
+
+            <h4>Misi</h4>
+            <ol>
+                <li>Meningkatkan kualitas penyusunan produk hukum daerah.</li>
+                <li>Menyediakan layanan dokumentasi dan informasi hukum yang cepat dan akurat.</li>
+                <li>Menyelenggarakan pemberian bantuan dan pendampingan hukum bagi perangkat daerah.</li>
+            </ol>
         </div>
-      </div>
-      <!-- CARD 3 -->
-      <div class="news-card">
-        <img class="nc-thumb" src="https://fisip.untan.ac.id/wp-content/uploads/2024/11/Alumni-FISIP-UNTAN-2024-scaled.jpg" alt="Alumni 2024"/>
-        <div class="nc-body">
-          <span class="nc-cat">Alumni</span>
-          <h3><a href="https://fisip.untan.ac.id/">Alumni FISIP Periode 2024 – Lulusan FISIP Untan Cemerlang</a></h3>
-          <p>Lulusan FISIP Untan Cemerlang ada yang memilih Bekerja, Berwirausaha, dan Melanjutkan Studi. FISIP Universitas Tanjungpura terus meningkatkan kualitas lulusannya.</p>
-          <div class="nc-meta"><span><i class="far fa-calendar-alt"></i>9 November 2024</span></div>
+    </div>
+</section>
+
+<section class="produk-hukum">
+    <div class="container">
+        <h3 class="section-title">Produk Hukum Daerah</h3>
+        <div class="produk-grid">
+            <a href="#" class="produk-item">
+                <div class="produk-icon">PD</div>
+                <div class="produk-text">
+                    <h4>Peraturan Daerah</h4>
+                    <p>Daftar peraturan daerah Kabupaten Kampar.</p>
+                </div>
+            </a>
+            <a href="#" class="produk-item">
+                <div class="produk-icon">PB</div>
+                <div class="produk-text">
+                    <h4>Peraturan Bupati</h4>
+                    <p>Peraturan Bupati Kampar yang masih berlaku.</p>
+                </div>
+            </a>
+            <a href="#" class="produk-item">
+                <div class="produk-icon">KB</div>
+                <div class="produk-text">
+                    <h4>Keputusan Bupati</h4>
+                    <p>Keputusan Bupati terkait penyelenggaraan pemerintahan.</p>
+                </div>
+            </a>
+            <a href="#" class="produk-item">
+                <div class="produk-icon">SK</div>
+                <div class="produk-text">
+                    <h4>Keputusan Sekda/Lainnya</h4>
+                    <p>Produk hukum lainnya di lingkungan Pemerintah Kabupaten Kampar.</p>
+                </div>
+            </a>
         </div>
-      </div>
-      <!-- CARD 4 -->
-      <div class="news-card">
-        <img class="nc-thumb" src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/MBKM-FISIP-UNTAN-2024-scaled.jpg" alt="MBKM 2024"/>
-        <div class="nc-body">
-          <span class="nc-cat">MBKM</span>
-          <h3><a href="https://fisip.untan.ac.id/2024/10/01/peluncuran-mbkm-periode-2024/">MBKM FISIP UNTAN 2024 – 301 Mahasiswa Magang di 60 Instansi Mitra</a></h3>
-          <p>Program MBKM FISIP UNTAN skema mandiri 2024 diikuti 301 mahasiswa peserta yang tersebar di 60 instansi mitra di Pontianak dan Kab. Kubu Raya.</p>
-          <div class="nc-meta"><span><i class="far fa-calendar-alt"></i>1 Oktober 2024</span></div>
+    </div>
+</section>
+
+<section class="profil-kepala">
+    <div class="container profil-inner">
+        <div class="profil-text">
+            <h3>Kepala Bagian Hukum</h3>
+            <h4>SUSILAWATI, SH, MH</h4>
+            <p>
+                Bagian Hukum Sekretariat Daerah Kabupaten Kampar berkomitmen memberikan layanan
+                dokumentasi dan informasi hukum yang prima kepada seluruh pemangku kepentingan.
+            </p>
+            <p>
+                Moto layanan: <strong>PRIMA</strong> (Profesional, Ramah, Informatif, Melayani, Akuntabel).
+            </p>
         </div>
-      </div>
-    </div>
-
-    <!-- KABAR TERKINI -->
-    <div class="sec-head">
-      <h2>Kabar Terkini</h2>
-      <a href="https://fisip.untan.ac.id/category/berita/">Semua Berita &raquo;</a>
-    </div>
-    <div class="news-list">
-      <div class="nl-item">
-        <img src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/MoU-FISIP-UNTAN-FAU-Jerman-scaled.jpg" alt="MoU FAU Jerman"/>
-        <div class="nl-info">
-          <h4><a href="https://fisip.untan.ac.id/">Kerjasama FISIP UNTAN dengan Friedensau Adventist University (FAU) Jerman – Kuliah Umum &amp; MoU Internasional</a></h4>
-          <div class="nl-meta"><i class="far fa-calendar-alt"></i>9 Januari 2025 &nbsp;<i class="fas fa-tag"></i>Kerjasama</div>
+        <div class="profil-foto">
+            <!-- Ganti dengan foto resmi jika kamu punya hak pakai -->
+            <div class="foto-placeholder">FOTO</div>
         </div>
-      </div>
-      <div class="nl-item">
-        <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/Dies-Natalis-FISIP-UNTAN-59-scaled.jpg" alt="Dies Natalis ke-59"/>
-        <div class="nl-info">
-          <h4><a href="https://fisip.untan.ac.id/">Dies Natalis FISIP UNTAN ke-59 Dirayakan di Kota Pontianak (29 Oktober 2024)</a></h4>
-          <div class="nl-meta"><i class="far fa-calendar-alt"></i>29 Oktober 2024 &nbsp;<i class="fas fa-tag"></i>Profil</div>
+    </div>
+</section>
+
+<section class="berita-kegiatan">
+    <div class="container">
+        <div class="berita-col">
+            <h3 class="section-title">Berita Terbaru</h3>
+
+            <article class="berita-item">
+                <h4>Pelaksanaan Sosialisasi Produk Hukum Daerah</h4>
+                <span class="meta">27 Februari 2026</span>
+                <p>
+                    Bagian Hukum Sekretariat Daerah Kabupaten Kampar melaksanakan sosialisasi
+                    produk hukum daerah kepada perangkat desa, guna meningkatkan pemahaman
+                    terhadap peraturan yang berlaku.
+                </p>
+            </article>
+
+            <article class="berita-item">
+                <h4>Rapat Koordinasi JDIH se-Kabupaten Kampar</h4>
+                <span class="meta">10 Januari 2026</span>
+                <p>
+                    Rapat koordinasi Jaringan Dokumentasi dan Informasi Hukum diselenggarakan
+                    untuk memperkuat sinergi pengelolaan dokumentasi hukum di seluruh perangkat daerah.
+                </p>
+            </article>
         </div>
-      </div>
-      <div class="nl-item">
-        <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/ICONAST-2024-FISIP-UNTAN-scaled.jpg" alt="ICONAST 2024"/>
-        <div class="nl-info">
-          <h4><a href="https://fisip.untan.ac.id/">Konferensi Internasional The 2nd ICONAST Sukses Digelar – Platform Inovasi Sosial dan Teknologi</a></h4>
-          <div class="nl-meta"><i class="far fa-calendar-alt"></i>15 Oktober 2024 &nbsp;<i class="fas fa-tag"></i>Riset</div>
+
+        <div class="kegiatan-col">
+            <h3 class="section-title">Pengumuman</h3>
+            <ul class="list-simple">
+                <li><a href="#">Informasi jadwal layanan konsultasi hukum tahun 2026.</a></li>
+                <li><a href="#">Pemberitahuan pemutakhiran database produk hukum daerah.</a></li>
+                <li><a href="#">Imbauan pemanfaatan aplikasi JDIH dalam penelusuran peraturan.</a></li>
+            </ul>
         </div>
-      </div>
-      <div class="nl-item">
-        <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/02/TUK-Administrasi-Perkantoran-FISIP-UNTAN-scaled.jpg" alt="TUK Administrasi Perkantoran"/>
-        <div class="nl-info">
-          <h4><a href="https://fisip.untan.ac.id/">Launching Tempat Uji Kompetensi (TUK) Administrasi Perkantoran di Aula FISIP UNTAN (29 Februari 2024)</a></h4>
-          <div class="nl-meta"><i class="far fa-calendar-alt"></i>29 Februari 2024 &nbsp;<i class="fas fa-tag"></i>Akademik</div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 Jaringan Dokumentasi dan Informasi Hukum</p>
+            <p>Bagian Hukum Sekretariat Daerah Kabupaten Kampar.</p>
         </div>
-      </div>
-      <div class="nl-item">
-        <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/05/Kerjasama-FISIP-UNTAN-UNAIR-scaled.jpg" alt="Kerjasama UNAIR"/>
-        <div class="nl-info">
-          <h4><a href="https://fisip.untan.ac.id/">FISIP UNTAN &amp; FISIP UNAIR Jalin Kerjasama Tri Dharma Perguruan Tinggi di Surabaya (23 Mei 2024)</a></h4>
-          <div class="nl-meta"><i class="far fa-calendar-alt"></i>23 Mei 2024 &nbsp;<i class="fas fa-tag"></i>Kerjasama</div>
+        <div class="footer-right">
+            <p>Alamat dan kontak resmi dapat ditambahkan di bagian ini.</p>
         </div>
-      </div>
-      <div class="nl-item">
-        <img src="https://fisip.untan.ac.id/wp-content/uploads/2024/05/Seminar-Nasional-ADI-FISIP-UNTAN-scaled.jpg" alt="Seminar ADI"/>
-        <div class="nl-info">
-          <h4><a href="https://fisip.untan.ac.id/">Seminar Nasional ADI: Strategi Pengembangan Pendidikan Tinggi Menuju Indonesia Emas (28 Mei 2024)</a></h4>
-          <div class="nl-meta"><i class="far fa-calendar-alt"></i>28 Mei 2024 &nbsp;<i class="fas fa-tag"></i>Berita</div>
-        </div>
-      </div>
     </div>
-  </main>
-
-  <!-- SIDEBAR -->
-  <aside>
-    <!-- PENGUMUMAN -->
-    <div class="sb-box">
-      <div class="sec-head" style="margin-bottom:0"><h2 style="font-size:13px">Pengumuman</h2><a href="#">Semua &raquo;</a></div>
-      <ul class="sb-list">
-        <li><i class="fas fa-angle-right"></i><div><a href="#">Pendaftaran Ulang Semester Genap 2024/2025 – Batas Akhir 25 Januari 2025</a><span class="s-date">20 Jan 2025</span></div></li>
-        <li><i class="fas fa-angle-right"></i><div><a href="#">Jadwal Ujian Akhir Semester Ganjil 2024/2025 – Semua Prodi</a><span class="s-date">10 Jan 2025</span></div></li>
-        <li><i class="fas fa-angle-right"></i><div><a href="https://pascasarjanafisip.untan.ac.id/">Pendaftaran Mahasiswa Baru S2 FISIP UNTAN 2025 Dibuka</a><span class="s-date">5 Jan 2025</span></div></li>
-        <li><i class="fas fa-angle-right"></i><div><a href="#">Bimbingan Teknis Implementasi MBKM Mandiri Semester Genap 2025</a><span class="s-date">2 Jan 2025</span></div></li>
-        <li><i class="fas fa-angle-right"></i><div><a href="#">Pengumuman Yudisium Semester Ganjil 2024/2025</a><span class="s-date">15 Des 2024</span></div></li>
-      </ul>
-    </div>
-
-    <!-- KALENDER -->
-    <div class="sb-box">
-      <div class="sec-head" style="margin-bottom:0"><h2 style="font-size:13px">Kalender Kegiatan</h2></div>
-      <div class="mini-cal">
-        <div class="mc-header">
-          <button>&#8249;</button>
-          <span>Maret 2026</span>
-          <button>&#8250;</button>
-        </div>
-        <table>
-          <thead><tr><th>Min</th><th>Sen</th><th>Sel</th><th>Rab</th><th>Kam</th><th>Jum</th><th>Sab</th></tr></thead>
-          <tbody>
-            <tr><td class="other"></td><td class="other"></td><td class="other"></td><td class="other"></td><td class="other"></td><td class="other"></td><td>1</td></tr>
-            <tr><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td class="has-event">7</td><td>8</td></tr>
-            <tr><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr>
-            <tr><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td></tr>
-            <tr><td>23</td><td class="today">24</td><td>25</td><td>26</td><td class="has-event">27</td><td>28</td><td>29</td></tr>
-            <tr><td>30</td><td>31</td><td></td><td></td><td></td><td></td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <ul class="sb-list" style="border-top:1px solid #eee">
-        <li><i class="fas fa-circle" style="font-size:7px;margin-top:4px"></i><div><a href="#">Seminar Nasional Kebijakan Publik – FISIP UNTAN</a><span class="s-date">27 Mar 2026</span></div></li>
-        <li><i class="fas fa-circle" style="font-size:7px;margin-top:4px"></i><div><a href="#">Workshop Penulisan Jurnal Ilmiah Terindeks Scopus</a><span class="s-date">7 Mar 2026</span></div></li>
-      </ul>
-    </div>
-
-    <!-- LAYANAN ONLINE -->
-    <div class="sb-box">
-      <div class="sec-head" style="margin-bottom:0"><h2 style="font-size:13px">Layanan Online</h2></div>
-      <div class="link-btn-grid">
-        <a class="link-btn" href="https://siakad.untan.ac.id" target="_blank"><i class="fas fa-desktop"></i>SIAKAD</a>
-        <a class="link-btn" href="#" target="_blank"><i class="fas fa-graduation-cap"></i>E-Learning</a>
-        <a class="link-btn" href="#" target="_blank"><i class="fas fa-book-open"></i>Perpustakaan</a>
-        <a class="link-btn" href="#"><i class="fas fa-file-alt"></i>Layanan Surat</a>
-        <a class="link-btn" href="https://pascasarjanafisip.untan.ac.id/" target="_blank"><i class="fas fa-user-graduate"></i>Daftar S2</a>
-        <a class="link-btn" href="#"><i class="fas fa-chart-bar"></i>Tracer Study</a>
-      </div>
-    </div>
-
-    <!-- AKREDITASI -->
-    <div class="sb-box">
-      <div class="sec-head" style="margin-bottom:0"><h2 style="font-size:13px">Akreditasi</h2></div>
-      <div style="padding:14px;text-align:center">
-        <div style="display:inline-flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;background:var(--blue);color:#fff;font-size:32px;font-weight:900;margin-bottom:10px;border:3px solid var(--gold)">A</div>
-        <p style="font-size:12px;color:#555;line-height:1.6">Akreditasi <strong>BAN-PT</strong><br/><strong style="color:var(--blue)">UNGGUL</strong></p>
-        <hr style="margin:10px 0;border-color:#eee"/>
-        <p style="font-size:10.5px;color:#888;margin-top:4px">ACQUIN International Accreditation<br/><em>In Progress</em></p>
-      </div>
-    </div>
-
-    <!-- SOSIAL MEDIA -->
-    <div class="sb-box">
-      <div class="sec-head" style="margin-bottom:0"><h2 style="font-size:13px">Ikuti Kami</h2></div>
-      <div style="padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px">
-        <a href="https://www.facebook.com/fisipuntan65" target="_blank" style="display:flex;align-items:center;gap:7px;background:#3b5998;color:#fff;padding:8px 10px;border-radius:3px;font-size:11px;font-weight:600"><i class="fab fa-facebook-f"></i>Facebook</a>
-        <a href="https://www.instagram.com/fisipuntan65" target="_blank" style="display:flex;align-items:center;gap:7px;background:#c13584;color:#fff;padding:8px 10px;border-radius:3px;font-size:11px;font-weight:600"><i class="fab fa-instagram"></i>Instagram</a>
-        <a href="https://twitter.com/fisipuntan" target="_blank" style="display:flex;align-items:center;gap:7px;background:#1da1f2;color:#fff;padding:8px 10px;border-radius:3px;font-size:11px;font-weight:600"><i class="fab fa-twitter"></i>Twitter</a>
-        <a href="https://www.youtube.com/@fisipuntan" target="_blank" style="display:flex;align-items:center;gap:7px;background:#ff0000;color:#fff;padding:8px 10px;border-radius:3px;font-size:11px;font-weight:600"><i class="fab fa-youtube"></i>YouTube</a>
-      </div>
-    </div>
-  </aside>
-</div>
-
-<!-- COUNTER BAND -->
-<div id="counter-band">
-  <div class="wrap">
-    <div class="counter-item"><div class="num">14</div><div class="lbl">Program Studi</div></div>
-    <div class="counter-item"><div class="num">59+</div><div class="lbl">Tahun Berdiri</div></div>
-    <div class="counter-item"><div class="num">4800+</div><div class="lbl">Mahasiswa Aktif</div></div>
-    <div class="counter-item"><div class="num">120+</div><div class="lbl">Dosen &amp; Staf</div></div>
-    <div class="counter-item"><div class="num">301</div><div class="lbl">Peserta MBKM 2024</div></div>
-    <div class="counter-item"><div class="num">60+</div><div class="lbl">Instansi Mitra</div></div>
-    <div class="counter-item"><div class="num">8</div><div class="lbl">Prodi Sarjana S1</div></div>
-    <div class="counter-item"><div class="num">3</div><div class="lbl">Prodi Magister S2</div></div>
-  </div>
-</div>
-
-<!-- PROGRAM STUDI -->
-<div id="prodi-section">
-  <div class="sec-head"><h2>Program Studi</h2><a href="https://fisip.untan.ac.id/akademik-2/program-studi/">Lihat Semua &raquo;</a></div>
-  <div class="prodi-grid">
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-landmark"></i></div><h3>Ilmu Politik</h3><p>S1 &bull; Akreditasi Unggul</p></div>
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-globe-asia"></i></div><h3>Hubungan Internasional</h3><p>S1 &bull; Akreditasi A</p></div>
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-comments"></i></div><h3>Ilmu Komunikasi</h3><p>S1 &bull; Akreditasi A</p></div>
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-balance-scale"></i></div><h3>Ilmu Pemerintahan</h3><p>S1 &bull; Akreditasi A</p></div>
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-users"></i></div><h3>Sosiologi</h3><p>S1 &bull; Akreditasi Unggul</p></div>
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-theater-masks"></i></div><h3>Antropologi Sosial</h3><p>S1 &bull; Akreditasi B</p></div>
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-city"></i></div><h3>Administrasi Publik</h3><p>S1 &bull; Akreditasi A</p></div>
-    <div class="prodi-card"><div class="p-icon"><i class="fas fa-briefcase"></i></div><h3>Adm. Perkantoran</h3><p>D3 &bull; Akreditasi B</p></div>
-  </div>
-</div>
-
-<!-- GALERI KEGIATAN -->
-<div id="gallery-section">
-  <div class="sec-head"><h2>Galeri Kegiatan</h2><a href="https://fisip.untan.ac.id/">Lihat Semua &raquo;</a></div>
-  <div class="gallery-grid">
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/KKM-FISIP-UNTAN-2024-2025-scaled.jpg" alt="KKM 2024/2025"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/Workshop-SAR-ACQUIN-Administrasi-Publik-FISIP-UNTAN-scaled.jpg" alt="Workshop SAR ACQUIN"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/Dies-Natalis-FISIP-UNTAN-59-scaled.jpg" alt="Dies Natalis ke-59"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/ICONAST-2024-FISIP-UNTAN-scaled.jpg" alt="ICONAST 2024"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2024/10/MBKM-FISIP-UNTAN-2024-scaled.jpg" alt="MBKM 2024"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2024/05/Kerjasama-FISIP-UNTAN-UNAIR-scaled.jpg" alt="Kerjasama UNAIR"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2024/02/TUK-Administrasi-Perkantoran-FISIP-UNTAN-scaled.jpg" alt="TUK Perkantoran"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2024/11/Alumni-FISIP-UNTAN-2024-scaled.jpg" alt="Alumni 2024"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2025/01/MoU-FISIP-UNTAN-FAU-Jerman-scaled.jpg" alt="MoU FAU Jerman"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-    <div class="g-item"><img src="https://fisip.untan.ac.id/wp-content/uploads/2024/05/Seminar-Nasional-ADI-FISIP-UNTAN-scaled.jpg" alt="Seminar ADI"/><div class="g-ov"><i class="fas fa-search-plus"></i></div></div>
-  </div>
-</div>
-
-<!-- MITRA -->
-<div id="partners">
-  <div class="wrap">
-    <h4>Mitra &amp; Kerjasama</h4>
-    <div class="partner-logos">
-      <div class="p-logo"><img src="https://fisip.untan.ac.id/wp-content/uploads/2022/07/Logo-UNTAN.png" alt="UNTAN" onerror="this.outerHTML='<span>UNTAN</span>'"/></div>
-      <div class="p-logo"><img src="https://upload.wikimedia.org/wikipedia/id/f/f1/Lambang_Kemendikbud.png" alt="Kemendikbud" onerror="this.outerHTML='<span>Kemendikbud Ristek</span>'"/></div>
-      <div class="p-logo"><img src="https://www.unair.ac.id/wp-content/uploads/2021/04/logo-unair.png" alt="UNAIR" onerror="this.outerHTML='<span>FISIP UNAIR</span>'"/></div>
-      <div class="p-logo"><span>BAPPEDA<br/>Kalbar</span></div>
-      <div class="p-logo"><span>ASPAPI</span></div>
-      <div class="p-logo"><span>LSP KAP</span></div>
-      <div class="p-logo"><span>BPS Kalbar</span></div>
-      <div class="p-logo"><span>KPU Pontianak</span></div>
-      <div class="p-logo"><span>ACQUIN Intl.</span></div>
-      <div class="p-logo"><span>FAU Jerman</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="wrap">
-    <div class="fc">
-      <div class="footer-logo">
-        <img src="https://jdih.kamparkab.go.id/public/template/images/logo.png" alt="Logo FISIP UNTAN" onerror="this.onerror=null;this.src='https://fisip.untan.ac.id/wp-content/uploads/2022/07/Logo-UNTAN.png'"/>
-        <h3>FISIP<br/>UNTAN</h3>
-      </div>
-      <h4>Tentang Kami</h4>
-      <p>Fakultas Ilmu Sosial dan Ilmu Politik Universitas Tanjungpura (FISIP UNTAN) didirikan pada 14 September 1965. Merupakan salah satu fakultas terbesar di Kalimantan Barat dengan 14 program studi aktif.</p>
-      <div class="ci"><i class="fas fa-map-marker-alt"></i><span>Jl. Prof. Dr. H. Hadari Nawawi, Pontianak 78124, Kalimantan Barat</span></div>
-      <div class="ci"><i class="fas fa-phone"></i><span>(0561) 571136</span></div>
-      <div class="ci"><i class="fas fa-envelope"></i><span>fisip@untan.ac.id</span></div>
-      <div class="ci"><i class="fas fa-globe"></i><span>fisip.untan.ac.id</span></div>
-      <div class="footer-social">
-        <a href="https://www.facebook.com/fisipuntan65" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/fisipuntan" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/fisipuntan65" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@fisipuntan" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-    <div class="fc">
-      <h4>Program Studi</h4>
-      <ul>
-        <li><a href="#">Ilmu Politik (S1)</a></li>
-        <li><a href="#">Hubungan Internasional (S1)</a></li>
-        <li><a href="#">Ilmu Komunikasi (S1)</a></li>
-        <li><a href="#">Ilmu Pemerintahan (S1)</a></li>
-        <li><a href="#">Sosiologi (S1)</a></li>
-        <li><a href="#">Antropologi Sosial (S1)</a></li>
-        <li><a href="#">Administrasi Publik (S1)</a></li>
-        <li><a href="https://perkantoran.fisip.untan.ac.id/">Adm. Perkantoran (D3)</a></li>
-        <li><a href="https://pascasarjanafisip.untan.ac.id/">Pascasarjana (S2)</a></li>
-      </ul>
-    </div>
-    <div class="fc">
-      <h4>Tautan Cepat</h4>
-      <ul>
-        <li><a href="https://fisip.untan.ac.id/">Beranda</a></li>
-        <li><a href="https://fisip.untan.ac.id/tentang-fisip/">Profil Fakultas</a></li>
-        <li><a href="https://fisip.untan.ac.id/akademik-2/program-studi/">Program Studi</a></li>
-        <li><a href="#">Kemahasiswaan</a></li>
-        <li><a href="#">Penelitian</a></li>
-        <li><a href="#">Pengabdian Masyarakat</a></li>
-        <li><a href="https://fisip.untan.ac.id/category/berita/">Berita</a></li>
-        <li><a href="#">Galeri</a></li>
-        <li><a href="#">Peta Situs</a></li>
-      </ul>
-    </div>
-    <div class="fc">
-      <h4>Layanan Online</h4>
-      <ul>
-        <li><a href="https://siakad.untan.ac.id" target="_blank">SIAKAD UNTAN</a></li>
-        <li><a href="#" target="_blank">E-Learning FISIP</a></li>
-        <li><a href="#" target="_blank">Perpustakaan Digital</a></li>
-        <li><a href="#">Layanan Surat Online</a></li>
-        <li><a href="https://pascasarjanafisip.untan.ac.id/">Pendaftaran S2</a></li>
-        <li><a href="#">Tracer Study Alumni</a></li>
-        <li><a href="#">Repository FISIP</a></li>
-        <li><a href="#">Jurnal Ilmiah</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 <span>Fakultas Ilmu Sosial dan Ilmu Politik – Universitas Tanjungpura</span>. All Rights Reserved. &nbsp;|&nbsp;
-    Dikembangkan oleh Tim Web FISIP UNTAN &nbsp;|&nbsp; Jl. Prof. Dr. H. Hadari Nawawi, Pontianak, Kalimantan Barat
-  </div>
 </footer>
 
-<script>
-(function(){
-  var slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.s-dot'),cur=0,tmr;
-  function goSlide(n){
-    slides[cur].classList.remove('active');dots[cur].classList.remove('active');
-    cur=((n%slides.length)+slides.length)%slides.length;
-    slides[cur].classList.add('active');dots[cur].classList.add('active');
-    clearInterval(tmr);tmr=setInterval(function(){changeSlide(1);},5500);
-  }
-  function changeSlide(d){goSlide(cur+d);}
-  window.goSlide=goSlide;window.changeSlide=changeSlide;
-  tmr=setInterval(function(){changeSlide(1);},5500);
-
-  /* Animated counters */
-  var band=document.getElementById('counter-band'),done=false;
-  function animNum(el){
-    var raw=el.textContent,has_plus=raw.indexOf('+')>-1,num=parseInt(raw.replace(/\D/g,''));
-    if(!num)return;
-    var s=Math.ceil(num/60),c=0;
-    var iv=setInterval(function(){
-      c=Math.min(c+s,num);
-      el.textContent=c.toLocaleString('id-ID')+(has_plus?'+':'');
-      if(c>=num)clearInterval(iv);
-    },22);
-  }
-  if(band){
-    var obs=new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting&&!done){
-        done=true;
-        document.querySelectorAll('.counter-item .num').forEach(animNum);
-      }
-    },{threshold:.3});
-    obs.observe(band);
-  }
-})();
-</script>
 </body>
 </html>
